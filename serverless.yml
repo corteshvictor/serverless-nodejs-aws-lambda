@@ -1,0 +1,26 @@
+service: serverless-lambda
+
+frameworkVersion: "1"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-2
+
+functions:
+  hello:
+    handler: handler.hello
+  message:
+    handler: handler.message
+    events:
+      - http:
+          path: message/{name}
+          method: get
+  cronjob:
+    handler: handler.cronjob
+    events:
+      - schedule: rate(1 minutes)

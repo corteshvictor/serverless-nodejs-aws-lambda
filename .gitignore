@@ -1,0 +1,14 @@
+# package directories
+node_modules
+jspm_packages
+package-lock.json
+
+# Serverless directories
+.serverless
+
+# dotenv environment variables file
+.env
+.env.*
+
+# VSCode Settings
+.vscode
