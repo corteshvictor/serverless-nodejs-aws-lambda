@@ -4,12 +4,14 @@ frameworkVersion: "1"
 
 plugins:
   - serverless-offline
+  - serverless-offline-scheduler
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
-  region: us-east-2
+  stage: ${env:AWS_STAGE}
+  region: ${env:AWS_REGION}
 
 functions:
   hello:

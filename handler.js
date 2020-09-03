@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports.hello = async (event) => {
+const hello = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify(
@@ -14,8 +14,9 @@ module.exports.hello = async (event) => {
   };
 };
 
-module.exports.message = async (event) => {
-  const reply = `Hello ${event.pathParameters.name}`;
+const message = async (event) => {
+  const { pathParameters: { name = "" } = {} } = event;
+  const reply = `Hello ${name}`;
 
   return {
     statusCode: 200,
@@ -25,9 +26,15 @@ module.exports.message = async (event) => {
   };
 };
 
-module.exports.cronjob = () => {
+const cronjob = () => {
   const now = new Date();
   const message = `The time is ${now}`;
-  console.log("Se esta ejecutando", message);
+  console.log("It is running: ", message);
   return message;
+};
+
+module.exports = {
+  hello,
+  message,
+  cronjob,
 };

@@ -53,3 +53,10 @@ NOTA:
 
 Schedule expressions using rate or cron
 https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents-expressions.html
+
+## .env
+
+```
+AWS_STAGE=dev
+AWS_REGION=us-east-2
+```
